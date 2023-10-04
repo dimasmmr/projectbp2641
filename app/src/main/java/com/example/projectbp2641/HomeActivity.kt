@@ -11,6 +11,12 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         val btnmore: Button = findViewById(R.id.menu4   )
+        val btnBook : Button = findViewById(R.id.menu2)
+
+        btnBook.setOnClickListener{
+            val intent = Intent(this,BookKidActivity::class.java)
+            startActivity(intent)
+        }
 
         btnmore.setOnClickListener{
             val intent = Intent(this,AboutActivity::class.java)
