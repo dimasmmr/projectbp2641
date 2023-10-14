@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +23,8 @@ class FairyFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,8 +37,26 @@ class FairyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fairy, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_fairy, container, false)
+        val rvBuku: RecyclerView = rootView.findViewById(R.id.recyclerViewFairy)
+        rvBuku.layoutManager = LinearLayoutManager(requireContext())
+
+        val data = ArrayList<BukuModel>()
+        data.add(BukuModel(R.drawable.book1,"Emis beach","Lorem ipsum dolor sit amet"))
+        data.add(BukuModel(R.drawable.book2,"Emis beach","Lorem ipsum dolor sit amet"))
+        data.add(BukuModel(R.drawable.book4,"Emis beach","Lorem ipsum dolor sit amet"))
+        data.add(BukuModel(R.drawable.book2,"Emis beach","Lorem ipsum dolor sit amet"))
+        data.add(BukuModel(R.drawable.book1,"Emis beach","Lorem ipsum dolor sit amet"))
+        data.add(BukuModel(R.drawable.book4,"Emis beach","Lorem ipsum dolor sit amet"))
+        data.add(BukuModel(R.drawable.book1,"Emis beach","Lorem ipsum dolor sit amet"))
+        data.add(BukuModel(R.drawable.book2,"Emis beach","Lorem ipsum dolor sit amet"))
+        data.add(BukuModel(R.drawable.book4,"Emis beach","Lorem ipsum dolor sit amet"))
+
+        val adapter = AdapterHome(data)
+        rvBuku.adapter = adapter
+
+        return rootView
+
     }
 
     companion object {
@@ -56,4 +78,6 @@ class FairyFragment : Fragment() {
                 }
             }
     }
+
+
 }

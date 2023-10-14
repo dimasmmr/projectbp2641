@@ -14,6 +14,7 @@ class BookKidActivity : AppCompatActivity() {
         val btnFable : Button = findViewById(R.id.btnFable)
         val btnSc :Button = findViewById(R.id.btnScience)
 
+
         btnFairy.setOnClickListener{
             replaceFragment(FairyFragment())
         }
